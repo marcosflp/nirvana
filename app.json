@@ -1,6 +1,6 @@
 {
-  "name": "django-boilerplate",
-  "description": "A Django boilerplate project",
+  "name": "nirvana",
+  "description": "Nirvana challenge",
   "keywords": ["python", "django"],
   "env": {
     "DEBUG": {
