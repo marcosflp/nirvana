@@ -5,9 +5,9 @@ from core.integrations.api import Api1Session, Api2Session, Api3Session
 def get_average_from_operations(
     deductible_values: list[int], stop_loss_values: list[int], oop_max_values: list[int]
 ):
-    deductible_avg = sum(deductible_values) / len(deductible_values)
-    stop_loss_avg = sum(stop_loss_values) / len(stop_loss_values)
-    oop_max_avg = sum(oop_max_values) / len(oop_max_values)
+    deductible_avg = int(sum(deductible_values) / len(deductible_values))
+    stop_loss_avg = int(sum(stop_loss_values) / len(stop_loss_values))
+    oop_max_avg = int(sum(oop_max_values) / len(oop_max_values))
 
     return {
         "deductible": deductible_avg,
