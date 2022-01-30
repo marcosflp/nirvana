@@ -1,15 +1,10 @@
 import graphene
 
-
-class Hello(graphene.ObjectType):
-    hello = graphene.String()
-
-    def resolve_hello(self, info):
-        return "Hello from the GraphQL API!"
+from core.api.graphql.schema.operation_query import Operation
 
 
-class Query(Hello, graphene.ObjectType):
+class Query(Operation, graphene.ObjectType):
     pass
 
 
-schema = graphene.Schema(query=Hello)
+schema = graphene.Schema(query=Query)
