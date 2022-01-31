@@ -9,20 +9,89 @@ Nirvana challenge project
 - Choose to use GraphQL API because it's a great API client. Also, this django project already had it configured.
 - Added the main business logic to `core/service/operation/`
 - Added the main tests at `core/services/tests/test_operation.py`
+- Added a mocked API at `core/integrations/api.py`
+- Bonus: Coalescing configuration strategy can be configurable by changing the `strategy` param (more details in the "Using" section).
 
 
 ## Using
 
-With the server running, access the endpoint http://localhost:8000/graphql to start making requests.
+I deployed this project to Heroku. You can access it at https://nirvana-challenge.herokuapp.com/graphql
 
-> To run the queries, just copy and paste it into the right panel. Run one query at a time
+> With the local server running, access the endpoint http://localhost:8000/graphql to start making requests.
 
-#### Get coalesced average operations
+> To run the queries, copy and paste them into the right panel. Run one query at a time
+
+#### Get coalesced AVERAGE operations
+
 ```gql
 query {
   getOperations(filters: {
     memberId: "1", 
     strategy: "AVERAGE"
+  }) {
+    strategy
+    deductible
+    stopLoss
+    oopMax
+  }
+}
+```
+
+#### Get coalesced COUNT operations
+
+```gql
+query {
+  getOperations(filters: {
+    memberId: "1", 
+    strategy: "COUNT"
+  }) {
+    strategy
+    deductible
+    stopLoss
+    oopMax
+  }
+}
+```
+
+#### Get coalesced MAX operations
+
+```gql
+query {
+  getOperations(filters: {
+    memberId: "1", 
+    strategy: "MAX"
+  }) {
+    strategy
+    deductible
+    stopLoss
+    oopMax
+  }
+}
+```
+
+#### Get coalesced MIN operations
+
+```gql
+query {
+  getOperations(filters: {
+    memberId: "1", 
+    strategy: "MIN"
+  }) {
+    strategy
+    deductible
+    stopLoss
+    oopMax
+  }
+}
+```
+
+#### Get coalesced SUM operations
+
+```gql
+query {
+  getOperations(filters: {
+    memberId: "1", 
+    strategy: "SUM"
   }) {
     strategy
     deductible
